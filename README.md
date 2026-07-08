@@ -2,18 +2,20 @@
 
 **ask. plan. delegate. verify. ask again.**
 
-An agent skill that turns requests into verified work and improves with each run. One markdown file, MIT, installs in 30 seconds. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
+An agent skill that turns requests into verified work and improves with each run. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
 
 ```
   ┌───────────────────────── next cycle ─────────────────────────┐
   ▼                                                              │
- ASK ─► PLAN ─► DELEGATE ─► VERIFY ─ pass ─► ASK AGAIN ───────────┘
+ ASK ─► PLAN ─► DELEGATE ─► VERIFY ─ pass ─► ASK AGAIN ──────────┘
              per slice        │ ▲
                               ▼ │
                         fail → fix
 ```
 
-Two loops. The inner one is VERIFY: on failure it fixes and re-checks, up to three times, then surfaces the blocker. The outer one is the close feeding the next cycle's questions. (Step 0 routes trivial tasks straight to work before ASK; a final pass re-checks every criterion and invariant together before ASK AGAIN.)
+Two nested loops. Not shown: Step 0 routes trivial tasks straight to work before ASK, and a final pass re-checks every criterion and invariant together before ASK AGAIN.
+
+The whole thing rests on one fact about agents: give them a target they can check and they close on it; leave the target vague and they drift. planloop's job is to produce that target early, then hold the work to it.
 
 ## What it fixes
 
@@ -36,10 +38,19 @@ planloop keeps context lean at five points:
 1. **plan.md replaces conversation replay.** A restarted or crashed session resumes from two small files, not a transcript.
 2. **Sub-agents get a slice, never the history.** Each one reads its piece of the plan and returns a summary, so the main thread stays clean even when total work grows.
 3. **One question round, not an interview.** Batched questions with proposed defaults cost one round trip.
-4. **Capped retries kill the spiral.** Three attempts per slice, stop on repeated failure. Retry loops are pure waste.
+4. **Capped retries kill the spiral.** Three attempts per slice, stop on repeated failure.
 5. **Commands verify before judgment.** Tests and linters are nearly free. LLM self-review is not, so it runs only where commands cannot reach.
 
 And tasks small enough that a plan would cost more than it saves never enter the loop: Step 0 routes them straight to work, before a single question is asked.
+
+## You'll notice it working
+
+- The agent asks a short batch of questions, or states its assumptions for you to veto, before writing anything.
+- A plan.md appears and waits for your approval; the work follows it instead of the chat history.
+- Verification runs against the criteria you approved, and blockers get surfaced instead of papered over.
+- The run closes by telling you what is still open, and sometimes proposes a learning for you to keep or reject.
+
+If work starts before any of this, the skill did not trigger. Say "use planloop" to force it.
 
 ## Install
 
@@ -61,8 +72,10 @@ And tasks small enough that a plan would cost more than it saves never enter the
 
 ## Use
 
-1. **Automatic.** Installed, it triggers on non-trivial work: anything with real effort, more than one moving part, or requirements that are not yet pinned down. A hard single-file change counts; three trivial edits do not. Quick fixes skip it.
+1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes. A hard single-file change counts; three trivial edits do not.
 2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip.
+
+Once installed, planloop triggers on its own for non-trivial work; there is nothing to configure.
 
 ## The skill learns
 
