@@ -29,7 +29,7 @@ Agents start without asking what you actually want, and they stop without checki
 
 ## Why not just use a skill pack?
 
-Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight compensates for model weaknesses that fade with every release. planloop bets on the part that does not: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere markdown skills work.
+Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight patches model quirks that come and go with each release. planloop bets on the part that holds steady: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere markdown skills work.
 
 ## Built to protect the context window
 
