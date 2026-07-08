@@ -1,9 +1,9 @@
 <p align="center" style="margin-bottom: 0; line-height: 0;">
 <img src="https://github.com/nmahavishnu/planloop/blob/pilot/planloop.png" width="500"> 
 </p>
+<br>
 
-
-### **ask. plan. delegate. verify. ask again.**
+## **ask. plan. delegate. verify. ask again.**
 
 An agent skill that turns requests into verified work and gets better as you use it. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
 
@@ -18,7 +18,7 @@ verify loops on failure up to three times, then surfaces the blocker. ask again 
 
 Agents drift without a target they can check. planloop gives them one, then holds the work to it.
 
-## What it fixes
+### What it fixes
 
 Agents start without asking what you actually want, and they stop without checking what they built. planloop guards both ends:
 
@@ -28,11 +28,11 @@ Agents start without asking what you actually want, and they stop without checki
 - **A final pass over the whole.** Slices that each pass on their own can still break where they meet, so the last step re-checks every criterion and invariant together.
 - **A close that learns.** Finished work reports what is still open, and can propose a learning, saved to your learnings file, not this skill, for you to approve or reject.
 
-## Why not just use a skill pack?
+### Why not just use a skill pack?
 
 Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight patches model quirks that come and go with each release. planloop bets on the part that holds steady: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere markdown skills work.
 
-## Built to protect the context window
+### Built to protect the context window
 
 planloop keeps context lean at five points:
 
@@ -53,7 +53,7 @@ And tasks small enough that a plan would cost more than it saves never enter the
 
 If work starts before any of this, the skill did not trigger. Say "use planloop" to force it.
 
-## Install
+### Install
 
 **Claude Code, one command:**
 
@@ -71,18 +71,18 @@ If work starts before any of this, the skill did not trigger. Say "use planloop"
 | Any tool with a skills directory | its skills folder, same layout |
 | No skills system at all | paste the file into your agent instructions (AGENTS.md, rules file) |
 
-## Use
+### Use
 
 1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes. A hard single-file change counts; three trivial edits do not.
 2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip.
 
-## The skill learns
+### The skill learns
 
 When a run exposes repeatable friction in the method, the agent proposes a short learning and you approve or reject it. Approved learnings live in `planloop.learnings.md` in your agent's user config directory (`~/.claude/` for Claude Code, `~/.codex/` for Codex, and so on), a separate file outside the skill, so updating or reinstalling planloop never erases what your copy has learned. The exact location is tool-specific, and the feature works best on tools with native skill discovery. Keep the file to about 20 lines; the method is identical for everyone, the learnings are yours.
 
 Anything specific to one project stays in that project's memory, not the learnings file, which keeps the file about the method rather than any single codebase.
 
-## License
+### License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/nmahavishnu/planloop/blob/main/LICENSE) for more information.
 
