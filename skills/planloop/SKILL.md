@@ -53,10 +53,10 @@ The vetoed-or-accepted list from Step 1.
 Things that must always hold, stated before work starts: cross-cutting rules in code (one persistent user ID ties all records; emails never correlate across systems), scope boundaries and required sources in research.
 
 ## Acceptance criteria
-Every criterion is derived from the goal and the Step 1 answers. Never invent one the user did not state or imply; a made-up number is a fake contract. State how each will be checked: by command where one can run (test, linter, build), by an adversarial judgment pass where none can but the result can still be argued right or wrong (design, copy, research), or (checked by: human) where neither applies. Use only checks available in this environment, and decide the method now, at plan time.
+Every criterion is derived from the goal and the Step 1 answers. Never invent one the user did not state or imply; a made-up number is a fake contract. State how each will be checked: by command where one can run (test, linter, build), or by an adversarial judgment pass where none can but the result can still be argued right or wrong (design, copy, research). Judgment applies to anything expressible in words, so almost every criterion is one of these two; escalate to a human only in the rare case neither can settle it. Use only checks available in this environment, and decide the method now, at plan time.
 Example of the form:
-- [ ] <a behavior the task requires> (checked by: test / linter / build)
-- [ ] <something no command can check> (checked by: human)   <- also how a hook-fired security criterion looks
+- [ ] <a behavior a command can check> (checked by: command, e.g. test / linter / build)
+- [ ] <a claim only argument can settle> (checked by: judgment, does it answer what was asked and where does it fail)
 
 ## Task slices
 Small and independently verifiable; prefer several small slices over a few large ones.
