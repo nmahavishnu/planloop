@@ -1,8 +1,8 @@
 # planloop
 
-**Ask. Plan. Delegate. Verify. Ask again.**
+**ask. plan. delegate. verify. ask again.**
 
-One skill built on two talks. [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s): you own the spec, the taste, and the quality bar; the agent owns the details. [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask): progress comes from asking better questions, not just collecting better answers. planloop makes both mechanical.
+An agent skill that turns requests into verified work and improves with each run. One markdown file, MIT, installs in 30 seconds. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
 
 ```
   ┌───────────────────────── next cycle ─────────────────────────┐
@@ -10,12 +10,12 @@ One skill built on two talks. [Andrej Karpathy](https://www.youtube.com/watch?v=
  ASK ─► PLAN ─► DELEGATE ─► VERIFY ─ pass ─► ASK AGAIN ───────────┘
              per slice        │ ▲
                               ▼ │
-                        fail → fix   (retry ≤3)
+                        fail → fix
 ```
 
 Two loops. The inner one is VERIFY: on failure it fixes and re-checks, up to three times, then surfaces the blocker. The outer one is the close feeding the next cycle's questions. (Step 0 routes trivial tasks straight to work before ASK; a final pass re-checks every criterion and invariant together before ASK AGAIN.)
 
-## Why
+## What it fixes
 
 Agents fail everywhere, but they fail hardest before the work starts and after it ends. They start without asking what you actually want, and they stop without checking what they built. planloop guards both ends:
 
@@ -25,21 +25,21 @@ Agents fail everywhere, but they fail hardest before the work starts and after i
 - **A final pass over the whole.** Slices that each pass on their own can still break where they meet, so the last step re-checks every criterion and invariant together.
 - **A close that learns.** Finished work reports what is still open, and can propose a learning, saved to your learnings file, not this skill, for you to approve or reject.
 
-## Built to spend fewer tokens
+## Why not just use a skill pack?
 
-planloop attacks token cost at five points:
+Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight compensates for model weaknesses that shrink with every release. planloop bets on the part that does not shrink: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere markdown skills work.
+
+## Built to protect the context window
+
+planloop keeps context lean at five points:
 
 1. **plan.md replaces conversation replay.** A restarted or crashed session resumes from two small files, not a transcript.
-2. **Sub-agents get a slice, never the history.** Each one reads its piece of the plan and returns a summary.
+2. **Sub-agents get a slice, never the history.** Each one reads its piece of the plan and returns a summary, so the main thread stays clean even when total work grows.
 3. **One question round, not an interview.** Batched questions with proposed defaults cost one round trip.
 4. **Capped retries kill the spiral.** Three attempts per slice, stop on repeated failure. Retry loops are pure waste.
 5. **Commands verify before judgment.** Tests and linters are nearly free. LLM self-review is not, so it runs only where commands cannot reach.
 
 And tasks small enough that a plan would cost more than it saves never enter the loop: Step 0 routes them straight to work, before a single question is asked.
-
-## Why one skill
-
-Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight compensates for model weaknesses that shrink with every release. planloop bets on the part that does not shrink: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere plain markdown skills work.
 
 ## Install
 
