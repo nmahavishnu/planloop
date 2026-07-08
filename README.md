@@ -14,7 +14,7 @@ An agent skill that turns requests into verified work and gets better as you use
                            fail → fix
 ```
 
-verify loops on failure up to three times, then surfaces the blocker. ask again reports what is still open, which seeds the next round if you start one. Before the first question, Step 0 sends trivial tasks straight to work; before the close, a final pass re-checks everything together.
+_verify_ loops on failure up to three times, then surfaces the blocker. _ask again_ reports what is still open, which seeds the next round if you start one. Before the first question, _Step 0_ sends trivial tasks straight to work; before the close, a final pass re-checks everything together.
 
 Agents drift without a target they can check. planloop gives them one, then holds the work to it.
 
