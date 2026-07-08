@@ -1,6 +1,10 @@
-# planloop
+<p align="center" style="margin-bottom: 0; line-height: 0;">
+<img src="https://github.com/nmahavishnu/planloop/blob/main/planloop.png" width="350"> 
+</p>
+<br>
 
-**ask. plan. delegate. verify. ask again.**
+
+### **ask. plan. delegate. verify. ask again.**
 
 An agent skill that turns requests into verified work and gets better as you use it. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
 
