@@ -2,18 +2,16 @@
 
 **ask. plan. delegate. verify. ask again.**
 
-An agent skill that turns requests into verified work and improves with each run. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
+An agent skill that turns requests into verified work and gets better as you use it. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.ted.com/talks/aravind_srinivas_how_ai_will_answer_questions_we_haven_t_thought_to_ask) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
 
 ```
-  ┌───────────────────────── next cycle ─────────────────────────┐
-  ▼                                                              │
- ASK ─► PLAN ─► DELEGATE ─► VERIFY ─ pass ─► ASK AGAIN ──────────┘
-                              │ ▲
-                              ▼ │
-                        fail → fix
+ ask ─► plan ─► delegate ─► verify ─► ask again
+                              │  ▲
+                              ▼  │
+                           fail → fix
 ```
 
-Two nested loops. Not shown: Step 0 routes trivial tasks straight to work before ASK, and a final pass runs before ASK AGAIN.
+verify loops on failure up to three times, then surfaces the blocker. ask again reports what is still open, which seeds the next round if you start one. Before the first question, Step 0 sends trivial tasks straight to work; before the close, a final pass re-checks everything together.
 
 Agents drift without a target they can check. planloop gives them one, then holds the work to it.
 
@@ -22,7 +20,7 @@ Agents drift without a target they can check. planloop gives them one, then hold
 Agents start without asking what you actually want, and they stop without checking what they built. planloop guards both ends:
 
 - **A few sharp questions, once.** One batched round, hard capped. Everything inferable becomes an assumption you can veto. No back-and-forth.
-- **The plan is the program.** Answers compile into plan.md with testable acceptance criteria. You approve it once. From there the plan gates the work, not the conversation.
+- **The plan is the contract.** Answers compile into plan.md with testable acceptance criteria. You approve it once. From there the plan gates the work, not the conversation.
 - **A loop, not a checklist.** Per slice: implement, verify, fix, re-verify. Commands before judgment. Three attempts, then the blocker surfaces. Criteria never get quietly weakened to pass.
 - **A final pass over the whole.** Slices that each pass on their own can still break where they meet, so the last step re-checks every criterion and invariant together.
 - **A close that learns.** Finished work reports what is still open, and can propose a learning, saved to your learnings file, not this skill, for you to approve or reject.
@@ -83,4 +81,5 @@ Anything specific to one project stays in that project's memory, not the learnin
 
 ## License
 
-MIT
+Distributed under the MIT License. See [LICENSE](https://github.com/nmahavishnu/planloop/blob/main/LICENSE) for more information.
+

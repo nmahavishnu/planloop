@@ -26,4 +26,4 @@ planloop is a single skill in a single file. Before opening a PR, check your cha
 
 ## License
 
-By contributing, you agree your contribution is licensed under the MIT License.
+By contributing, you agree your contribution is licensed under the [MIT License](https://github.com/nmahavishnu/planloop/blob/main/LICENSE).
