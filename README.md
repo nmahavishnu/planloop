@@ -13,13 +13,13 @@ An agent skill that turns requests into verified work and improves with each run
                         fail → fix
 ```
 
-Two nested loops. Not shown: Step 0 routes trivial tasks straight to work before ASK, and a final pass re-checks every criterion and invariant together before ASK AGAIN.
+Two nested loops. Not shown: Step 0 routes trivial tasks straight to work before ASK, and a final pass runs before ASK AGAIN.
 
-The whole thing rests on one fact about agents: give them a target they can check and they close on it; leave the target vague and they drift. planloop's job is to produce that target early, then hold the work to it.
+Agents drift without a target they can check. planloop gives them one, then holds the work to it.
 
 ## What it fixes
 
-Agents fail everywhere, but they fail hardest before the work starts and after it ends. They start without asking what you actually want, and they stop without checking what they built. planloop guards both ends:
+Agents start without asking what you actually want, and they stop without checking what they built. planloop guards both ends:
 
 - **A few sharp questions, once.** One batched round, hard capped. Everything inferable becomes an assumption you can veto. No back-and-forth.
 - **The plan is the program.** Answers compile into plan.md with testable acceptance criteria. You approve it once. From there the plan gates the work, not the conversation.
@@ -29,7 +29,7 @@ Agents fail everywhere, but they fail hardest before the work starts and after i
 
 ## Why not just use a skill pack?
 
-Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight compensates for model weaknesses that shrink with every release. planloop bets on the part that does not shrink: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere markdown skills work.
+Skill packs turned into frameworks: dozens of files, commands to learn, personas to configure. Most of that weight compensates for model weaknesses that fade with every release. planloop bets on the part that does not: the interface between your intent and the agent's work. Ask, write it down, check against it, learn. One file, works anywhere markdown skills work.
 
 ## Built to protect the context window
 
@@ -74,8 +74,6 @@ If work starts before any of this, the skill did not trigger. Say "use planloop"
 
 1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes. A hard single-file change counts; three trivial edits do not.
 2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip.
-
-Once installed, planloop triggers on its own for non-trivial work; there is nothing to configure.
 
 ## The skill learns
 
