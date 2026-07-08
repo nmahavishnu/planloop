@@ -1,6 +1,6 @@
 ---
 name: planloop
-description: A five-step loop for non-trivial work: ask a small batched round of questions, compile the answers into plan.md, delegate slices, verify against the plan's own criteria, then close by surfacing what is still open. Use it when a task touches three or more files, spans more than one session, has any unresolved requirement, or when the user says "planloop". Skip it for single-file fixes, quick questions, and trivial edits.
+description: 'A five-step loop for non-trivial work: ask a small batched round of questions, compile the answers into plan.md, delegate slices, verify against the plan''s own criteria, then close by surfacing what is still open. Use it when a task touches three or more files, spans more than one session, has any unresolved requirement, or when the user says "planloop". Skip it for single-file fixes, quick questions, and trivial edits.'
 ---
 
 # planloop
