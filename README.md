@@ -1,11 +1,13 @@
 <p align="center" style="margin-bottom: 0; line-height: 0;">
-<img src="https://github.com/nmahavishnu/planloop/blob/main/planloop.png" width="500"> 
+<img src="https://raw.githubusercontent.com/nmahavishnu/planloop/main/planloop.png" width="500"> 
 </p>
 <br>
 
 ## ask. plan. delegate. verify. ask again.
 
-An agent skill that turns requests into verified work and gets better as you use it. Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering (you own the spec, the taste, and the quality bar; the agent owns the details) and [Aravind Srinivas](https://www.youtube.com/watch?v=MD4W_e3dJPs&t=248s) on questioning (progress comes from asking better questions, not just collecting better answers). planloop makes both mechanical.
+An agent skill that turns requests into verified work and gets better as you use it. 
+
+Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering and [Aravind Srinivas](https://www.youtube.com/watch?v=MD4W_e3dJPs&t=248s) on relentless questioning. planloop makes both mechanical.
 
 ```
  ask ─► plan ─► delegate ─► verify ─► ask again
@@ -14,7 +16,9 @@ An agent skill that turns requests into verified work and gets better as you use
                            fail → fix
 ```
 
-_verify_ loops on failure up to three times, then surfaces the blocker. _ask again_ reports what is still open, which seeds the next round if you start one. Before the first question, _Step 0_ sends trivial tasks straight to work; before the close, a final pass re-checks everything together.
+_verify_ loops on failure up to three times, then surfaces the blocker. _ask again_ reports what is still open, which seeds the next round if you start one. 
+
+Before the first question, _Step 0_ sends trivial tasks straight to work; before the close, a final pass re-checks everything together.
 
 Agents drift without a target they can check. planloop gives them one, then holds the work to it.
 
