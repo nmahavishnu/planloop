@@ -8,7 +8,7 @@ An agent skill that turns requests into verified work and improves with each run
   ┌───────────────────────── next cycle ─────────────────────────┐
   ▼                                                              │
  ASK ─► PLAN ─► DELEGATE ─► VERIFY ─ pass ─► ASK AGAIN ──────────┘
-             per slice        │ ▲
+                                │ ▲
                               ▼ │
                         fail → fix
 ```
