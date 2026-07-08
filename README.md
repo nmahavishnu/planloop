@@ -1,5 +1,5 @@
 <p align="center" style="margin-bottom: 0; line-height: 0;">
-<img src="https://github.com/nmahavishnu/planloop/blob/pilot/planloop.png" width="500"> 
+<img src="https://github.com/nmahavishnu/planloop/blob/main/planloop.png" width="500"> 
 </p>
 <br>
 
