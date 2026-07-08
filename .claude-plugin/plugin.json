@@ -1,0 +1,10 @@
+{
+    "name": "planloop",
+    "version": "1.0.0",
+    "description": "Ask, plan, delegate, verify, ask again. Turns requests into verified work: one capped question round, a plan.md as the source of truth, slice-scoped delegation, command-first verification, and a close that learns.",
+    "author": {
+      "name": "Naveen Mahavishnu"
+    },
+    "license": "MIT",
+    "keywords": ["planning", "spec", "verification", "agentic-engineering", "loop", "skills"]
+}
