@@ -59,26 +59,43 @@ If work starts before any of this, the skill did not trigger. Say "use planloop"
 
 ### Install
 
-**Claude Code, one command:**
+**Claude Code, as a plugin.** Add the marketplace, then install:
 
 ```
 /plugin marketplace add nmahavishnu/planloop
 /plugin install planloop@planloop
 ```
 
-**Or copy the file** into your agent's skills directory:
+**Or copy the file.** Two lines, and the folder layout is done for you:
 
-| Tool | Destination |
+```
+mkdir -p ~/.claude/skills/planloop
+curl -o ~/.claude/skills/planloop/SKILL.md \
+  https://raw.githubusercontent.com/nmahavishnu/planloop/main/skills/planloop/SKILL.md
+```
+
+SKILL.md sits directly inside a folder named after the skill:
+
+```
+skills/
+└── planloop/
+    └── SKILL.md
+```
+
+Drop that folder wherever your agent looks for skills:
+
+| Tool | Skills directory |
 |---|---|
-| Claude Code (project) | `.claude/skills/planloop/SKILL.md` |
-| Claude Code (global) | `~/.claude/skills/planloop/SKILL.md` |
-| Any tool with a skills directory | its skills folder, same layout |
-| No skills system at all | paste the file into your agent instructions (AGENTS.md, rules file) |
+| Claude Code | `~/.claude/skills/` (global) or `.claude/skills/` (project) |
+| Codex, Gemini CLI, Copilot, Windsurf | `.agents/skills/` |
+| Cursor | `~/.cursor/skills/` or `.cursor/skills/` |
+
+No skills system? Paste SKILL.md into your agent's instructions file. It works, but the instructions then load on every request instead of only when needed.
 
 ### Use
 
 1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes.
-2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip.
+2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip. As a slash command it is `/planloop`, or `/planloop:planloop` if you installed the plugin.
 
 ### The skill learns
 
@@ -87,4 +104,3 @@ When the same friction shows up twice, the agent proposes a short learning and y
 ### License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/nmahavishnu/planloop/blob/main/LICENSE) for more information.
-
