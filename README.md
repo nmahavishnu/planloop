@@ -7,7 +7,7 @@
 
 An agent skill that turns requests into verified work and gets better as you use it. 
 
-Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering and [Aravind Srinivas](https://www.youtube.com/watch?v=MD4W_e3dJPs&t=248s) on relentless questioning. planloop makes both mechanical.
+Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering and [Aravind Srinivas](https://www.youtube.com/watch?v=MD4W_e3dJPs&t=248s) on relentless questioning.
 
 ```
  ask ─► plan ─► delegate ─► verify ─► ask again
@@ -30,7 +30,7 @@ Agents start without asking what you actually want, and they stop without checki
 - **The plan is the contract.** Answers compile into plan.md with testable acceptance criteria. You approve it once. From there the plan gates the work, not the conversation.
 - **A loop, not a checklist.** Per slice: implement, verify, fix, re-verify. Commands before judgment. Three attempts, then the blocker surfaces. Criteria never get quietly weakened to pass.
 - **A final pass over the whole.** Slices that each pass on their own can still break where they meet, so the last step re-checks every criterion and invariant together.
-- **A close that learns.** Finished work reports what is still open, and can propose a learning, saved to your learnings file, not this skill, for you to approve or reject.
+- **A close that learns.** Finished work reports what is still open, and can propose a learning, saved to your learnings file, for you to approve or reject.
 
 ### Why not just use a skill pack?
 
@@ -77,14 +77,12 @@ If work starts before any of this, the skill did not trigger. Say "use planloop"
 
 ### Use
 
-1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes. A hard single-file change counts; three trivial edits do not.
+1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes.
 2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip.
 
 ### The skill learns
 
-When a run exposes repeatable friction in the method, the agent proposes a short learning and you approve or reject it. Approved learnings live in `planloop.learnings.md` in your agent's user config directory (`~/.claude/` for Claude Code, `~/.codex/` for Codex, and so on), a separate file outside the skill, so updating or reinstalling planloop never erases what your copy has learned. The exact location is tool-specific, and the feature works best on tools with native skill discovery. Keep the file to about 20 lines; the method is identical for everyone, the learnings are yours.
-
-Anything specific to one project stays in that project's memory, not the learnings file, which keeps the file about the method rather than any single codebase.
+When the same friction shows up twice, the agent proposes a short learning and you approve or reject it. Approved learnings live in `planloop.learnings.md` in your agent's user config directory (`~/.claude/` for Claude Code, `~/.codex/` for Codex, and so on), a separate file outside the skill, so updating or reinstalling planloop never erases what your copy has learned. The exact location is tool-specific, and the feature works best on tools with native skill discovery. Keep the file to about 20 lines.
 
 ### License
 

@@ -7,7 +7,7 @@
       {
         "name": "planloop",
         "source": "./",
-        "version": "1.0.0",
+        "version": "0.1.0",
         "description": "Ask, plan, delegate, verify, ask again. Turns requests into verified work with a close that learns."
       }
     ]
