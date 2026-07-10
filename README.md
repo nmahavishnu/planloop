@@ -16,7 +16,7 @@ Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfL
                            fail → fix
 ```
 
-_verify_ loops on failure up to three times, then surfaces the blocker. _ask again_ reports what is still open, which seeds the next round if you start one. 
+_verify_ allows three attempts, then surfaces the blocker. _ask again_ reports what is still open, which seeds the next round if you start one. 
 
 Before the first question, _Step 0_ sends trivial tasks straight to work; before the close, a final pass re-checks everything together.
 
