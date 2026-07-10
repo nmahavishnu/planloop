@@ -15,7 +15,7 @@ Run the loop if the task leaves anything to guess at, if a requirement is unreso
 
 ## Step 1: Ask
 
-One batched round of questions up front. Questions you cannot answer yet go into plan.md under Open Questions, and each is raised when the work reaches the slice that needs it, not now.
+One batched round of questions up front. Questions that cannot be answered yet go into plan.md under Open Questions, and each is raised when the work reaches the slice that needs it, not now.
 
 Rules, in order:
 
@@ -52,7 +52,7 @@ The vetoed-or-accepted list from Step 1.
 Rules that must hold after every slice, not just one. A criterion is a finish line checked once; an invariant constrains how every slice reaches it. Each is checked like a criterion (command or judgment), re-run after any slice that could affect it.
 
 ## Acceptance criteria
-Derive each criterion from the goal and the Step 1 answers; never invent one the user did not state or imply. A made-up number is a fake contract. State how each is checked: by an available command (existing tests, linter, build), or by adversarial judgment where none applies (design, copy, research). Use only checks available here, and decide the method now.
+Derive each criterion from the goal and the Step 1 answers; never invent one the user did not state or imply. A made-up number is a fake contract. State how each is checked: by an available command (existing tests, linter, build), or by adversarial judgment where none applies (design, copy, research). Use only checks available in this environment, and decide the method now.
 Example of the form:
 - [ ] <a behavior a command can check> (checked by: command, e.g. test / linter / build)
 - [ ] <a claim only argument can settle> (checked by: judgment, e.g. does it answer what was asked)
@@ -123,4 +123,4 @@ Close the loop. Two moves, each conditional:
 
 ## Tailored learnings
 
-Learnings are stored outside this skill (see the top for the location), so updating or reinstalling planloop never erases them. The file is created on the first approved learning. Keep it to about 20 lines. Never edit this file yourself; send all learnings to the learnings file.
+Learnings are stored outside this skill (see the top for the location), so updating or reinstalling planloop never erases them. The file is created on the first approved learning. Keep it to about 20 lines. Never edit this SKILL.md yourself; send all learnings to the learnings file.
