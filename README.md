@@ -96,6 +96,8 @@ No skills system? Paste SKILL.md into your agent's instructions file. It works, 
 1. **Automatic.** Installed, it triggers on non-trivial work and skips quick fixes.
 2. **By name.** Say "use planloop" to run it on anything, including tasks the trigger would skip. As a slash command it is `/planloop`, or `/planloop:planloop` if you installed the plugin.
 
+Auto-triggering is deliberately conservative. On a borderline task it may answer directly rather than run the full loop, staying out of the way unless the work clearly needs the structure. When you want the loop, name it. "use planloop" always runs it.
+
 ### The skill learns
 
 When the same friction shows up twice, the agent proposes a short learning and you approve or reject it. Approved learnings live in `planloop.learnings.md` in your agent's user config directory (`~/.claude/` for Claude Code, `~/.codex/` for Codex, and so on), a separate file outside the skill, so updating or reinstalling planloop never erases what your copy has learned. The exact location is tool-specific, and the feature works best on tools with native skill discovery. Keep the file to about 20 lines.
