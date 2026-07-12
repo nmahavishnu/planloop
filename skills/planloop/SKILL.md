@@ -1,13 +1,13 @@
 ---
 name: planloop
-description: 'A five-step loop for non-trivial work: ask a small batched round of questions, compile the answers into plan.md, delegate slices, verify against the plan''s own criteria, then close by surfacing what is still open. Use it when a task leaves anything to guess at, has an unresolved requirement, is large enough to need slices or to outlive one session, or when the user says "planloop". Skip it for fully specified small tasks, quick questions, and trivial edits.'
+description: 'Use when the user asks to build, implement, plan, design, research, or figure out something that is not a trivial one-step edit: any task with an unresolved requirement, anything ambiguous enough to need a decision, or anything large enough to need multiple steps or to outlive one session. Also use whenever the user says "planloop". Once triggered, it runs a loop: ask a small batched round of questions, compile the answers into plan.md, get approval, deliver in verified slices, then surface what is still open. Skip only for fully specified one-step tasks, quick factual questions, and trivial edits.'
 ---
 
 # planloop
 
 Ask. Plan. Delegate. Verify. Ask again. State lives on disk, not in conversation.
 
-At invocation, read the planloop learnings file if it exists: `planloop.learnings.md` in the user config directory (`~/.claude/` for Claude Code, `~/.codex/` for Codex, `~/.gemini/` for Gemini CLI, and so on). Its lines tailor how you work and fill gaps. They do not override the core loop: a learning can change how you ask or verify, not whether you plan, get approval, and check.
+At invocation, check for a learnings file at `planloop.learnings.md` in the user config directory (`~/.claude/` for Claude Code, `~/.codex/` for Codex, `~/.gemini/` for Gemini CLI, and so on). If it exists, its lines tailor how you work and fill gaps. They do not override the core loop: a learning can change how you ask or verify, not whether you plan, get approval, and check. If it does not exist, do not create or mention it. 
 
 ## Step 0: Size the task
 
@@ -123,4 +123,4 @@ Close the loop. Two moves, each conditional:
 
 ## Tailored learnings
 
-Learnings are stored outside this skill (see the top for the location), so updating or reinstalling planloop never erases them. The file is created on the first approved learning. Keep it to about 20 lines. Never edit this SKILL.md yourself; send all learnings to the learnings file.
+Approved learnings are stored in planloop.learnings.md, outside this skill,, so updating or reinstalling planloop never erases them. The file is created on the first approved learning. Keep it to about 20 lines. Never edit this SKILL.md yourself; send all learnings to that file.
