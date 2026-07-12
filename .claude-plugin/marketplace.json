@@ -1,0 +1,14 @@
+{
+  "name": "planloop",
+  "owner": {
+    "name": "Naveen Mahavishnu"
+  },
+  "plugins": [
+    {
+      "name": "planloop",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Ask, plan, delegate, verify, ask again. Turns requests into verified work, and learns from your runs."
+    }
+  ]
+}
