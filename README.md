@@ -5,7 +5,7 @@
 
 ## ask. plan. delegate. verify. ask again.
 
-An agent skill that turns requests into verified work and gets better as you use it. 
+An agent skill that turns requests into verified work, and learns from your runs.
 
 Built on two talks: [Andrej Karpathy](https://www.youtube.com/watch?v=96jN2OCOfLs&t=957s) on agentic engineering and [Aravind Srinivas](https://www.youtube.com/watch?v=MD4W_e3dJPs&t=248s) on relentless questioning.
 
